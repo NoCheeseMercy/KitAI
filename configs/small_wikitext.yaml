@@ -1,0 +1,43 @@
+# KitAI Small Model Configuration
+# ~85M parameters - fits easily on 6GB VRAM
+# Good for prototyping and small-scale training
+
+model:
+  vocab_size: 32000
+  d_model: 512
+  n_layers: 8
+  n_heads: 8
+  n_kv_heads: 4
+  d_ff: 1536
+  max_seq_len: 1024
+  dropout: 0.0
+  norm_eps: 1e-6
+  rope_theta: 10000.0
+  activation: swiglu
+  weight_tying: true
+  bias: false
+  init_std: 0.02
+  gradient_checkpointing: true
+  use_flash_attention: true
+
+training:
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  max_steps: 20000
+  max_epochs: 20
+  learning_rate: 5e-4
+  min_learning_rate: 5e-5
+  warmup_steps: 100
+  weight_decay: 0.1
+  label_smoothing: 0.0
+  gradient_clip_val: 1.0
+  use_amp: true
+  log_every_n_steps: 10
+  save_every_n_steps: 200
+  validate_every_n_steps: 500
+  keep_last_n_checkpoints: 3
+  log_dir: logs
+  output_dir: checkpoints
+  experiment_name: kitai_small
+  num_workers: 0
+  pin_memory: true

@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Training artifacts - NEVER push (live training writes here)
+checkpoints/
+proof_run/
+proof_run_v2/
+*.pt
+*.safetensors
+*.gguf
+*.bin
+
+# Datasets - 18GB FineWeb-Edu + SFT, re-acquire via scripts
+datasets/kitai_200m_scratch/
+datasets/fable5_wikitext_mix/
+datasets/oasst1_wikitext_mix/
+datasets/*.txt
+*.txt
+!requirements.txt
+
+# Logs - live training writes here
+logs/
+*.log
+*.jsonl
+!pyproject.toml
+
+# Exports - 10GB HF/GGUF intermediates
+exports/
+
+# Local data / caches (regenerable, never push)
+data/
+demo_data/
+token_cache/
+.cache/
+
+# Large raw datasets - re-acquire via scripts/acquire_kitai_200m_data.py
+*.gz
+*.bak*
+*.err
+grok.md
+kilocode.md
+
+# Vendored llama.cpp (160MB, 3400+ files) - clone separately if needed for GGUF export
+tools/llama.cpp/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Keep these (explicitly NOT ignored by above):
+# configs/, models/, training/, tokenizer/, scripts/, kitai/, utils/, tests/
+# README.md, ARCHITECTURE.md, requirements.txt, pyproject.toml, setup.py

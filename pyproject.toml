@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "kitai"
+version = "0.1.0"
+description = "Production-quality local language model framework"
+readme = "README.md"
+authors = [
+    {name = "Eyad Abdelaziz"},
+]
+license = {text = "MIT"}
+requires-python = ">=3.10"
+keywords = ["llm", "transformer", "deep-learning", "nlp", "language-model"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "rich>=13.0.0",
+    "pyyaml>=6.0",
+    "tqdm>=4.65.0",
+    "regex>=2023.0.0",
+    "numpy>=1.24.0",
+    "psutil>=5.9.0",
+    "pandas>=2.0.0",
+    "pyarrow>=12.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.0.0",
+    "mypy>=1.0.0",
+]
+hf = ["datasets>=2.0.0"]
+
+[project.urls]
+Homepage = "https://github.com/kitai/kitai"
+Repository = "https://github.com/kitai/kitai"
+Documentation = "https://kitai.readthedocs.io"
+
+[tool.setuptools.packages.find]
+include = ["models*", "training*", "tokenizer*", "datasets*", "utils*", "scripts*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]

@@ -1,0 +1,43 @@
+model:
+  vocab_size: 32000
+  d_model: 640
+  n_layers: 10
+  n_heads: 10
+  n_kv_heads: 5
+  d_ff: 1792
+  max_seq_len: 512
+  dropout: 0.1
+  norm_eps: 1e-6
+  rope_theta: 10000.0
+  activation: swiglu
+  weight_tying: true
+  bias: false
+  init_std: 0.02
+  gradient_checkpointing: false
+  use_flash_attention: true
+training:
+  batch_size: 4
+  gradient_accumulation_steps: 16
+  max_steps: 25000
+  max_epochs: 10
+  max_time_hours: 22.0
+  learning_rate: 5e-4
+  min_learning_rate: 5e-5
+  warmup_steps: 1000
+  weight_decay: 0.1
+  label_smoothing: 0.05
+  gradient_clip_val: 1.0
+  use_amp: true
+  log_every_n_steps: 20
+  save_every_n_steps: 1000
+  validate_every_n_steps: 1000
+  max_val_batches: 50
+  keep_last_n_checkpoints: 3
+  log_dir: logs/fable5_wikitext_mixed_smoke
+  output_dir: checkpoints/fable5_wikitext_mixed_smoke
+  experiment_name: kitai_fable5_wikitext_mixed_smoke
+  num_workers: 0
+  pin_memory: true
+  use_rich: false
+  fused_optimizer: false
+tokenizer_path: tokenizer/kitai_bpe_32k.json

@@ -1,0 +1,46 @@
+# Inactive preparation only. Run only after production pretraining is complete and
+# a verified final checkpoint is available. The run must use --load-model, never
+# --resume, so SFT receives pretraining weights but fresh optimizer/schedule state.
+model:
+  vocab_size: 32000
+  d_model: 768
+  n_layers: 20
+  n_heads: 12
+  n_kv_heads: 4
+  d_ff: 3072
+  max_seq_len: 256
+  dropout: 0.05
+  norm_eps: 0.000001
+  rope_theta: 10000.0
+  activation: swiglu
+  weight_tying: true
+  bias: false
+  init_std: 0.02
+  gradient_checkpointing: true
+  use_flash_attention: true
+training:
+  batch_size: 1
+  gradient_accumulation_steps: 64
+  max_steps: 12000
+  max_epochs: 0
+  max_time_hours: 0
+  learning_rate: 0.00005
+  min_learning_rate: 0.000005
+  warmup_steps: 200
+  weight_decay: 0.05
+  label_smoothing: 0.0
+  gradient_clip_val: 1.0
+  use_amp: true
+  log_every_n_steps: 20
+  save_every_n_steps: 500
+  validate_every_n_steps: 500
+  max_val_batches: 50
+  keep_last_n_checkpoints: 2
+  log_dir: logs/kitai_200m_scratch_final_sft
+  output_dir: checkpoints/kitai_200m_scratch_final_sft
+  experiment_name: kitai_200m_scratch_final_sft
+  num_workers: 0
+  pin_memory: true
+  use_rich: false
+  fused_optimizer: false
+tokenizer_path: tokenizer/kitai_200m_chat_32k.json
