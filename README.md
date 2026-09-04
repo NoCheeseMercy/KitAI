@@ -78,7 +78,7 @@ KitAI/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/kitai.git
+git clone https://github.com/NoCheeseMercy/kitai.git
 cd kitai
 
 # Install dependencies
@@ -223,7 +223,7 @@ MIT
 ```bibtex
 @software{kitai2024,
   title = {KitAI: Production-Quality Local Language Model Framework},
-  author = {KitAI Contributors},
+  author = {NoCheeseMercy On Github},
   year = {2024},
-  url = {https://github.com/kitai/kitai}
+  url = {https://github.com/NoCheeseMercy/kitai}
 }
