@@ -4,6 +4,8 @@
 
 KitAI is a from-scratch implementation of a modern decoder-only transformer language model framework. It combines the best architectural ideas from GPT, Llama, Qwen, DeepSeek, Mistral, Phi, and Gemma into a cohesive, modular, and efficient system optimized for consumer GPUs with **6GB VRAM**.
 
+> **⚠️ Hardcoded paths:** Many helper, launcher, and status scripts in this repo use absolute paths from the original author's machine (for example `D:\EYAD\KitAI\...` and `C:\Users\abdel\...\python.exe`), so those scripts **will not run as-is on your device** until every folder path is replaced with the real paths on your machine. You can replace them by hand, or take the easy way and let a free agent like [OpenCode](https://opencode.ai) make the changes for you. **Full guide with the ready-made agent prompt: [PATHS.md](PATHS.md).**
+
 ## Features
 
 ### Model Architecture
@@ -227,3 +229,4 @@ MIT
   year = {2026},
   url = {https://github.com/NoCheeseMercy/kitai}
 }
+```
