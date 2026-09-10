@@ -224,6 +224,6 @@ MIT
 @software{kitai2026,
   title = {KitAI: Production-Quality Local Language Model Framework},
   author = {NoCheeseMercy On Github},
-  year = {2024},
+  year = {2026},
   url = {https://github.com/NoCheeseMercy/kitai}
 }
