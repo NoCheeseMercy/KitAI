@@ -1,3 +1,5 @@
+![KitAI Banner](assets/banner.png)
+
 # KitAI
 
 **Production-Quality Local Language Model Framework**
